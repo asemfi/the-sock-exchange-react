@@ -1,4 +1,4 @@
-name: Update and Deploy AWS Lambda Function
+name: AWS Lambda CD
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       - name: Zip Lambda function
         run: |
           cd aws
-          zip -r function.zip .  # Zips the entire aws directory
+          zip -r function.zip .
 
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v4
@@ -35,8 +35,10 @@ jobs:
 
       - name: Upload zip file to S3
         run: |
-          aws s3 cp ./aws/function.zip s3://the-sock-exchange/resize.zip
+          aws s3 cp ./aws/function.zip s3://the-bucke-0f-wa3327/resize.zip
 
       - name: Update Lambda function
         run: |
-          aws lambda update-function-code --function-name resize --s3-bucket the-sock-exchange --s3-key resize.zip
+          aws lambda update-function-code --function-name resize \
+          --s3-bucket the-bucke-0f-wa3327 \
+          --s3-key resize.zip

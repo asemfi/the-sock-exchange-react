@@ -1,3 +1,8 @@
+import Sock from "./components/Sock";
+import sock_data from './assets/sock.json'
+import Footer from "./components/Footer";
+import Search from "./components/Search";
+
 function App() {
   return (
   <>
@@ -35,12 +40,7 @@ a></li>
 <a className="nav-link disabled" aria-disabled="true">Disabled</a>
 </li>
 </ul>
-<form className="d-flex" role="search">
-<input className="form-control me-2" type="search"
-placeholder="Search" aria-label="Search" />
-<button className="btn btn-outline-success" type="submit">Search</
-button>
-</form>
+ <Search/>
 </div>
 </div>
 </nav>
@@ -49,7 +49,10 @@ button>
 <div className="row">
 Both socks and space rockets 🚀 will take you to new heights, but
 only one will get cold feet!
-<div className="card-container"></div>
+<div className="card-container">
+  <Sock data={sock_data}/>
+</div>
+  <Footer environment="DEVELOPMENT"/>
 </div>
 </div>
 </main>

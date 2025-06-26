@@ -17,9 +17,11 @@ const Sock = (props) => {
     <div className="card-text">Padded: {props.data.additionalFeatures.padded ? "Yes" : "No"} </div>
     <div className="card-text">Anti Bacterial: {props.data.additionalFeatures.antiBacterial ? "Yes" : "No"} </div>
     </div>
-    <div className="card-footer" >
-    <small className="text-muted">Added:{props.data.addedTimestamp} </small>
-    </div>
+    <div className="card-footer" style={{ display: 'flex', justifyContent: 'spacebetween' }}>
+<small className="text-muted">Added: {props.data.addedTimestamp}</small>
+<button className="btn btn-sm btn-danger" onClick={() =>
+props.handleDelete(props.data._id)}>Delete</button>
+</div>
     </div>
     );
     };

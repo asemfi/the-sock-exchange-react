@@ -1,12 +1,11 @@
 import React from "react";
-const Footer = (props) =>{
-    return(
-<footer className="text-muted">
 
-     <div><strong>{props.environment}</strong>
-     </div>
-</footer>
-    );
+const Footer = ({ className, children }) => {
+  return (
+    <footer className={`w-100 py-3 text-center ${className}`}>
+      {children}
+    </footer>
+  );
 };
 
 export default Footer;
